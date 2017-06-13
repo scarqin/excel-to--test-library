@@ -1,0 +1,192 @@
+<html>
+
+<head>
+    <title>JS读取Excel中的数据</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="lfc-test.css">
+    <link rel="icon" href="img/images.png">
+    <!-- international support from https://github.com/sheetjs/js-codepage -->
+    <script type="text/javascript" src="dist/xlsx.core.min.js"></script>
+    <script src="dist/cpexcel.js"></script>
+    <script type="text/javascript" src="dist/jquery.min.js"></script>
+    <script type="text/javascript" src="lfc-test.js"></script>
+</head>
+
+<body>
+    <div class="select-box">
+        <input class="file-name" placeholder="请选择测试文件">
+        <input type="file" id="excel-file">
+        <label class="btn-select" for="excel-file">选择文件</label>
+    </div>
+    <div class="left">
+        <div class="subject-box">
+            <div class="subject-title">单选题</div>
+            <div class="subject-question-box">
+                <div class="item">0</div>.
+                <div class="subject-question">
+                    你会不会挂？
+                </div>
+            </div>
+            <a href="javascript:void(0);" class="subject-options ">
+                <label class="radio" id="selectionA">
+                    <span class="icons"></span>
+                    <input type="radio" data-toggle="radio">
+                    <pre>还没开始？</pre>
+                </label>
+            </a>
+            <a href="javascript:void(0);" class="subject-options ">
+                <label class="radio" id="selectionB">
+                    <span class="icons"></span>
+                    <input type="radio" data-toggle="radio">
+                    <pre>现在开始？</pre>
+                </label>
+            </a>
+            <a href="javascript:void(0);" class="subject-options">
+                <label class="radio" id="selectionC">
+                    <span class="icons"></span>
+                    <input type="radio" data-toggle="radio">
+                    <pre>那你走远了</pre>
+                </label>
+            </a>
+            <a href="javascript:void(0);" class="subject-options ">
+                <label class="radio" id="selectionD">
+                    <span class="icons"></span>
+                    <input type="radio" data-toggle="radio">
+                    <pre>放弃吧</pre>
+                </label>
+            </a>
+            <a href="javascript:void(0);" class="subject-options">
+                <label class="radio" id="selectionE">
+                    <span class="icons"></span>
+                    <input type="radio" data-toggle="radio">
+                    <pre>没用的</pre>
+                </label>
+            </a>
+            <a href="javascript:void(0);" class="subject-options">
+                <label class="radio" id="selectionF">
+                    <span class="icons"></span>
+                    <input type="radio" data-toggle="radio">
+                    <pre>不存在的</pre>
+                </label>
+            </a>
+        </div>
+        <div class="answer-box">
+        </div>
+        <div class="control-box">
+            <input id="btnLast" type="submit" name="button" class="btn btn-primary" value="上一题">
+            <input id="btnNext" type="submit" name="button" class="btn btn-primary" value="下一题">
+            <input id="btnSubmit" type="submit" name="button" class="btn btn-primary" value="确认">
+        </div>
+    </div>
+    <!-- 100道错题集 -->
+    <div class="right">
+        <ul class="answer-sheet-num clearfix">
+            <li><a href="javascript:void(0);" class="answering-num">1</a></li>
+            <li><a href="javascript:void(0);">2</a></li>
+            <li><a href="javascript:void(0);">3</a></li>
+            <li><a href="javascript:void(0);">4</a></li>
+            <li><a href="javascript:void(0);">5</a></li>
+            <li><a href="javascript:void(0);">6</a></li>
+            <li><a href="javascript:void(0);">7</a></li>
+            <li><a href="javascript:void(0);">8</a></li>
+            <li><a href="javascript:void(0);">9</a></li>
+            <li><a href="javascript:void(0);">10</a></li>
+            <li><a href="javascript:void(0);">11</a></li>
+            <li><a href="javascript:void(0);">12</a></li>
+            <li><a href="javascript:void(0);">13</a></li>
+            <li><a href="javascript:void(0);">14</a></li>
+            <li><a href="javascript:void(0);">15</a></li>
+            <li><a href="javascript:void(0);">16</a></li>
+            <li><a href="javascript:void(0);">17</a></li>
+            <li><a href="javascript:void(0);">18</a></li>
+            <li><a href="javascript:void(0);">19</a></li>
+            <li><a href="javascript:void(0);">20</a></li>
+            <li><a href="javascript:void(0);">21</a></li>
+            <li><a href="javascript:void(0);">22</a></li>
+            <li><a href="javascript:void(0);">23</a></li>
+            <li><a href="javascript:void(0);">24</a></li>
+            <li><a href="javascript:void(0);">25</a></li>
+            <li><a href="javascript:void(0);">26</a></li>
+            <li><a href="javascript:void(0);">27</a></li>
+            <li><a href="javascript:void(0);">28</a></li>
+            <li><a href="javascript:void(0);">29</a></li>
+            <li><a href="javascript:void(0);">30</a></li>
+            <li><a href="javascript:void(0);">31</a></li>
+            <li><a href="javascript:void(0);">32</a></li>
+            <li><a href="javascript:void(0);">33</a></li>
+            <li><a href="javascript:void(0);">34</a></li>
+            <li><a href="javascript:void(0);">35</a></li>
+            <li><a href="javascript:void(0);">36</a></li>
+            <li><a href="javascript:void(0);">37</a></li>
+            <li><a href="javascript:void(0);">38</a></li>
+            <li><a href="javascript:void(0);">39</a></li>
+            <li><a href="javascript:void(0);">40</a></li>
+            <li><a href="javascript:void(0);">41</a></li>
+            <li><a href="javascript:void(0);">42</a></li>
+            <li><a href="javascript:void(0);">43</a></li>
+            <li><a href="javascript:void(0);">44</a></li>
+            <li><a href="javascript:void(0);">45</a></li>
+            <li><a href="javascript:void(0);">46</a></li>
+            <li><a href="javascript:void(0);">47</a></li>
+            <li><a href="javascript:void(0);">48</a></li>
+            <li><a href="javascript:void(0);">49</a></li>
+            <li><a href="javascript:void(0);">50</a></li>
+            <li><a href="javascript:void(0);">51</a></li>
+            <li><a href="javascript:void(0);">52</a></li>
+            <li><a href="javascript:void(0);">53</a></li>
+            <li><a href="javascript:void(0);">54</a></li>
+            <li><a href="javascript:void(0);">55</a></li>
+            <li><a href="javascript:void(0);">56</a></li>
+            <li><a href="javascript:void(0);">57</a></li>
+            <li><a href="javascript:void(0);">58</a></li>
+            <li><a href="javascript:void(0);">59</a></li>
+            <li><a href="javascript:void(0);">60</a></li>
+            <li><a href="javascript:void(0);">61</a></li>
+            <li><a href="javascript:void(0);">62</a></li>
+            <li><a href="javascript:void(0);">63</a></li>
+            <li><a href="javascript:void(0);">64</a></li>
+            <li><a href="javascript:void(0);">65</a></li>
+            <li><a href="javascript:void(0);">66</a></li>
+            <li><a href="javascript:void(0);">67</a></li>
+            <li><a href="javascript:void(0);">68</a></li>
+            <li><a href="javascript:void(0);">69</a></li>
+            <li><a href="javascript:void(0);">70</a></li>
+            <li><a href="javascript:void(0);">71</a></li>
+            <li><a href="javascript:void(0);">72</a></li>
+            <li><a href="javascript:void(0);">73</a></li>
+            <li><a href="javascript:void(0);">74</a></li>
+            <li><a href="javascript:void(0);">75</a></li>
+            <li><a href="javascript:void(0);">76</a></li>
+            <li><a href="javascript:void(0);">77</a></li>
+            <li><a href="javascript:void(0);">78</a></li>
+            <li><a href="javascript:void(0);">79</a></li>
+            <li><a href="javascript:void(0);">80</a></li>
+            <li><a href="javascript:void(0);">81</a></li>
+            <li><a href="javascript:void(0);">82</a></li>
+            <li><a href="javascript:void(0);">83</a></li>
+            <li><a href="javascript:void(0);">84</a></li>
+            <li><a href="javascript:void(0);">85</a></li>
+            <li><a href="javascript:void(0);">86</a></li>
+            <li><a href="javascript:void(0);">87</a></li>
+            <li><a href="javascript:void(0);">88</a></li>
+            <li><a href="javascript:void(0);">89</a></li>
+            <li><a href="javascript:void(0);">90</a></li>
+            <li><a href="javascript:void(0);">91</a></li>
+            <li><a href="javascript:void(0);">92</a></li>
+            <li><a href="javascript:void(0);">93</a></li>
+            <li><a href="javascript:void(0);">94</a></li>
+            <li><a href="javascript:void(0);">95</a></li>
+            <li><a href="javascript:void(0);">96</a></li>
+            <li><a href="javascript:void(0);">97</a></li>
+            <li><a href="javascript:void(0);">98</a></li>
+            <li><a href="javascript:void(0);">99</a></li>
+            <li><a href="javascript:void(0);">100</a></li>
+        </ul>
+        <div class="page-control-box">
+            <input id="btnLastPage" type="submit" name="button" class="btn btn-primary" value="上一页">
+            <input id="btnNextPage" type="submit" name="button" class="btn btn-primary" value="下一页">
+        </div>
+    </div>
+</body>
+
+</html>
