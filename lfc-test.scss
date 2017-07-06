@@ -1,5 +1,6 @@
-html,body {
-        font-family:arial, STHeiti, 'Microsoft YaHei';
+html,
+body {
+    font-family: arial, STHeiti, 'Microsoft YaHei';
     height: 100%;
 }
 
@@ -31,74 +32,59 @@ a {
     /* Internet Explorer 10+ */
     color: #000;
 }
-
-.file-name {
-    width: 500px;
-    height: 35px;
-}
-
-#excel-file {
-    z-index: 1;
-    opacity: 0;
-    position: absolute;
-}
-
 .select-box {
     margin: 0 auto;
     width: 505px;
+    .file-name {
+        width: 500px;
+        height: 35px;
+    }
+    #excel-file {
+        z-index: 1;
+        opacity: 0;
+        position: absolute;
+    }
+    .btn-select {
+        display: inline-block;
+        width: 100px;
+        text-align: center;
+        margin-left: -102px;
+        background: #2196f3;
+        color: #fff;
+        border: 1px solid rgb(4, 131, 232);
+        height: 33px;
+        line-height: 29px;
+        cursor: pointer;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+    }
 }
 
-.btn-select {
-    display: inline-block;
-    width: 100px;
-    text-align: center;
-    margin-left: -102px;
-    background: #2196f3;
-    color: #fff;
-    border: 1px solid rgb(4, 131, 232);
-    height: 33px;
-    line-height: 29px;
-    cursor: pointer;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
+.subject-box {
+    .subject-title {
+        padding: 15px 20px 15px 55px;
+        background: #FFF url(img/fish.png) 18px 17px no-repeat;
+        background-size: 25px;
+        line-height: 1.5;
+        font-size: 16px;
+        border-bottom: 1px solid #eee;
+        border-radius: 3px;
+        font-weight: bold;
+    }
+    .subject-question-box {
+        width: 350px;
+        margin-bottom: 20px;
+        .subject-question {
+            display: inline-block;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    }
 }
 
-.subject-title {
-    padding: 15px 20px 15px 55px;
-    background: #FFF url(img/fish.png) 18px 17px no-repeat;
-    background-size: 25px;
-    line-height: 1.5;
-    font-size: 16px;
-    border-bottom: 1px solid #eee;
-    border-radius: 3px;
-    font-weight: bold;
-}
-
-.subject-question-box {
-	width: 350px;
-    margin-bottom: 20px;
-}
-
-.subject-question {
-    display: inline-block;
-    font-size: 14px;
-    line-height: 1.6;
-}
-
-.subject-options.selected,
-.subject-options.selected:hover {
+@mixin subject-options {
     border-color: #1abc9c;
     background: #FFF;
-}
-
-.subject-options:hover {
-    background: #F3F3F3;
-    text-decoration: none;
-    border-color: #909090;
-}
-
-a:hover {
-    color: #25bb9b;
 }
 
 .subject-options {
@@ -111,10 +97,18 @@ a:hover {
     background: #FFF;
     display: block;
     word-break: break-all;
-}
-
-.radio:hover {
-    color: #00bc9b;
+    .selected {
+        @include subject-options ;
+        &:hover {
+            @include subject-options
+        }
+    }
+    &:hover {
+        background: #F3F3F3;
+        text-decoration: none;
+        border-color: #909090;
+        color: #25bb9b;
+    }
 }
 
 .radio {
@@ -122,6 +116,9 @@ a:hover {
     font-size: 14px;
     text-align: left;
     display: inline-block;
+    &:hover{
+            color: #00bc9b;
+    }
 }
 
 .radio.checked .icons {
@@ -144,7 +141,7 @@ a:hover {
 
 .radio.check .icons:before {
     border-radius: 50%;
-    background:  #2196f3;
+    background: #2196f3;
     width: 8px;
     height: 8px;
     display: inline-block;
@@ -154,6 +151,7 @@ a:hover {
     left: 3px;
     top: 3px;
 }
+
 .radio.correct .icons:before {
     border-radius: 50%;
     background: #00bc9b;
@@ -166,6 +164,7 @@ a:hover {
     left: 3px;
     top: 3px;
 }
+
 .radio.false .icons:before {
     border-radius: 50%;
     background: #F44336;
@@ -218,7 +217,7 @@ pre {
 }
 
 .answer-box {
-    margin:20px 0;
+    margin: 20px 0;
     font-size: 14px;
     line-height: 1.6;
 }
@@ -269,9 +268,10 @@ pre {
     float: right;
 }
 
-.answer-sheet-num{
+.answer-sheet-num {
     height: 400px;
 }
+
 .answer-sheet-num li {
     float: left;
     margin-right: 10px;
@@ -293,17 +293,20 @@ pre {
     height: 40px;
     line-height: 40px;
 }
+
 .answer-sheet-num a.answering-click,
 .answer-sheet-num a:hover {
     display: block;
     background: #2196f3;
     color: #FFF;
 }
+
 .answer-sheet-num a.answering-correct {
     display: block;
     background: #59b59c;
     color: #FFF;
 }
+
 .answer-sheet-num a.answering-wrong {
     display: block;
     background-color: #f44336;
@@ -314,12 +317,13 @@ pre {
     width: 227px;
     margin: 0 auto;
 }
-.footer{
+
+.footer {
     z-index: -999;
     width: 100%;
     height: 35px;
     line-height: 35px;
-    text-align:center;
+    text-align: center;
     border-top: 1px solid #e5e5e5;
     font-size: 15px;
     position: fixed;
